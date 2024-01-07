@@ -1,0 +1,26 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+
+{% block nav %}
+    {% include "core/navbar_base.html" %}
+{% endblock nav %}
+
+
+{% block content %}
+
+<!-- Section-->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4 col col-sm-9">
+                <div class="text-center position-relative overflow-hidden">
+                    {% block form %}
+                    {% endblock form %} 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

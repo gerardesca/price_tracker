@@ -1,0 +1,3 @@
+{% load i18n %}{% autoescape off %}
+Actualizacion de correo en {{ site_name }}
+{% endautoescape %}

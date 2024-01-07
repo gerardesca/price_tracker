@@ -1,0 +1,9 @@
+{% load static %}
+
+<div class="col-4 col-sm-2">
+        <a href="{% url 'account:profile' %}" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+            <span class="fs-5 fw-semibold"><i class="bi bi-person-fill"></i> {{ user.username }}</span>
+        </a>
+        {% block sidebarAdd %}
+        {% endblock sidebarAdd %}
+</div>

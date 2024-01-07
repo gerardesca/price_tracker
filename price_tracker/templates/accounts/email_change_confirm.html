@@ -1,0 +1,24 @@
+{% extends "core/main.html" %}
+
+{% load i18n %}
+
+{% block content %}
+
+{% if validlink %}
+
+<div class="alert alert-success" role="alert">
+    <p>{% translate "¡Gracias por confirmar tu correo electrónico!" %}</p>
+</div>
+
+
+{% else %}
+
+<div class="alert alert-warning" role="alert">
+    <p>
+        {% translate "El enlace de activación de cuenta es inválido, posiblemente debido a que ya ha sido usado." %}
+    </p>
+</div>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,3 @@
+{% load i18n %}{% autoescape off %}
+Activación de cuenta en {{ site_name }}
+{% endautoescape %}

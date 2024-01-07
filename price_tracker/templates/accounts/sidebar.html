@@ -1,0 +1,40 @@
+{% extends "core/sidebar_base.html" %}
+
+{% load static %}
+
+{% block sidebarAdd %}
+
+<ul class="list-unstyled ps-0">
+    <!--<li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#account-collapse" 
+                aria-expanded="false">
+            Perfil
+        </button>
+        <div class="collapse" id="account-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+                </li>
+            </ul>
+        </div>
+    </li>-->
+    <li>
+        <form method="get" action="{% url 'account:profile_update' user.id %}">
+            <button type="submit" class="btn btn-sm">
+                <i class="bi bi-gear"></i> Ajustes
+            </button>
+        </form>
+    </li>
+    <li>
+        <form method="post" action="{% url 'account:logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-sm">
+                <i class="bi bi-box-arrow-left"></i> Cerrar sesión
+            </button>
+        </form>
+    </li>
+    <li class="border-top my-3"></li>
+</ul>
+
+{% endblock sidebarAdd %}

@@ -1,0 +1,36 @@
+{% extends "accounts/base.html" %}
+
+{% load static %}
+
+{% block subcontent %}
+
+<div class="col">
+    <div class="card">
+        <h5 class="card-header">{{ user.username }}</h5>
+        <div class="card-body">
+
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="post">
+                {% csrf_token %}
+                <p>Por favor, ingresa tu contraseña para confirmar la eliminación de tu cuenta.</p>
+                {% if form.username.errors %}
+                    <div class="alert alert-danger" role="alert">{{ form.username.errors }}</div>
+                {% endif %}
+                <p>{{ form.username }}</p>
+
+                {% if form.password.errors %}
+                    <div class="alert alert-danger" role="alert">{{ form.password.errors }}</div>
+                {% endif %}
+                <p>{{ form.password }}</p>
+                <button class="btn btn-outline-danger btn-sm" type="submit">Confirmar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock subcontent %}

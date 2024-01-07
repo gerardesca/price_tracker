@@ -1,0 +1,13 @@
+{% autoescape off %}
+
+¡Hola {{ user.username }}!
+
+Este correo es para validar tu actualización de correo eléctronico, por favor sigue el enlace de verificación a continuación:
+
+{{ protocol }}://{{ domain }}{% url "account:register_confirm" uidb64=uid token=token %}
+
+
+Si no puedes hacer clic en el enlace, cópialo y pégalo en la barra de direcciones de tu navegador.
+Este paso es necesario para garantizar la seguridad de tu cuenta. Una vez que hayas verificado tu dirección de correo electrónico, podrás acceder a todas las funcionalidades.
+
+{% endautoescape %}

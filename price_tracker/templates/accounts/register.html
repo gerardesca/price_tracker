@@ -1,0 +1,57 @@
+{% extends "core/form_base.html" %}
+
+{% load i18n static %}
+{% load static %}
+
+{% block form %}
+
+<div class="p-1">
+    <h3>Registrarse</h3>
+</div>
+
+{% if form.errors and not form.non_field_errors %}
+    <p class="errornote">
+        {% blocktranslate count counter=form.errors.items|length %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktranslate %}
+    </p>
+{% endif %}
+
+
+<div class="p-3">
+    <form method="post" action="{% url 'account:register' %}">
+        {% csrf_token %}
+        {% if form.username.errors %}
+            <div class="alert alert-danger" role="alert">{{ form.username.errors }}</div>
+        {% endif %}
+        <p>{{ form.username }} </p>
+        {% if form.first_name.errors %}
+            <div class="alert alert-danger" role="alert">{{ form.first_name.errors }}</div>
+        {% endif %}
+        <p>{{ form.first_name }} </p>
+        {% if form.last_name.errors %}
+            <div class="alert alert-danger" role="alert">{{ form.last_name.errors }}</div>
+        {% endif %}
+        <p>{{ form.last_name }} </p>
+        {% if form.email.errors %}
+            <div class="alert alert-danger" role="alert">{{ form.email.errors }}</div>
+        {% endif %}
+        <p>{{ form.email }} </p>
+        {% if form.password1.errors %}
+            <div class="alert alert-danger" role="alert">{{ form.password1.errors }}</div>
+        {% endif %}
+        <p>{{ form.password1 }} </p>
+        {% if form.password2.errors %}
+            <div class="alert alert-danger" role="alert">{{ form.password2.errors }}</div>
+        {% endif %}
+        <p>{{ form.password2 }} </p>
+        <button class="btn btn-outline-dark btn-sm" type="submit">Registrarse</button>
+    </form>
+</div>
+<div class="p-5">
+    <div class=" border-top">
+        <small>
+            <a href="{% url 'account:login' %}" class="link-underline-light link-opacity-50-hover">Iniciar sesión</a>
+        </small>
+    </div>
+</div>
+
+{% endblock form %}

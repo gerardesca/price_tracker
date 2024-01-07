@@ -1,0 +1,49 @@
+{% extends "accounts/base.html" %}
+
+{% load static %}
+
+{% block subcontent %}
+
+<div class="col">
+  <div class="card">
+      <h5 class="card-header">{{ user.username }}</h5>
+      <form method="post">
+          <div class="card-body">    
+              {% csrf_token %}
+              <p>{{ form.first_name }} </p>
+              <p>{{ form.last_name }} </p>
+              <button class="btn btn-outline-dark btn-sm" type="submit" value="Update">Guardar</button>
+          </div>
+          <div class="card-body">
+              <div class="row">
+                  <div class="col">
+                      <p>{{ form.email }}</p>
+                  </div>
+                  <div class="col">
+                      <a href="{% url "account:email_change" %}" class="btn btn-outline-dark btn-sm">
+                          Cambiar
+                      </a>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <p><input class="form-control h-auto form-control-solid" placeholder="Contraseña" disabled></p>
+                  </div>
+                  <div class="col">
+                      <a href="{% url "account:password_change" %}" class="btn btn-outline-dark btn-sm">
+                          Cambiar
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </form>
+      <div class="card-body">
+          <a href="{% url "account:profile_delete" user.id %}" class="btn btn-outline-danger btn-sm">
+              Eliminar cuenta
+          </a>
+      </div>
+  </div>
+</div>
+
+
+{% endblock subcontent %}

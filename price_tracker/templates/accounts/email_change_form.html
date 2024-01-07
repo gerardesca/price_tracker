@@ -1,0 +1,23 @@
+{% extends "accounts/base.html" %}
+
+{% load static %}
+
+{% block subcontent %}
+
+<div class="col">
+    <div class="card">
+        <h5 class="card-header">{{ user.username }}</h5>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                {% if form.new_email.errors %}
+                    <div class="alert alert-danger" role="alert">{{ form.new_email.errors }}</div>
+                {% endif %}
+                <p>{{ form.new_email }}</p>
+                <button class="btn btn-outline-dark btn-sm" type="submit">Verificar Email</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock subcontent %}

@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+
+{% block nav %}
+    {% include "core/navbar_base.html" %}
+{% endblock nav %}
+
+{% block content %}
+    <div class="row">
+        {% include "accounts/sidebar.html" %}
+        {% block subcontent %}
+        {% endblock subcontent %}
+    </div>
+{% endblock content %}

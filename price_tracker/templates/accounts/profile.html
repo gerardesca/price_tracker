@@ -1,0 +1,18 @@
+{% extends "accounts/base.html" %}
+
+{% load static %}
+
+{% block subcontent %}
+    <div class="col">
+            <div class="card">
+                <h5 class="card-header">{{ user.username }}</h5>
+                <div class="card-body">
+                    <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+                    <h5 class="card-title">{{ user.email }}</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-body-secondary">Fecha de creación: {{ user.date_joined}}</small>
+                </div>
+            </div>
+    </div>
+{% endblock subcontent %}

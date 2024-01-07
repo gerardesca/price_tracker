@@ -1,0 +1,13 @@
+{% autoescape off %}
+
+¡Bienvenido {{ user.username }}!
+
+Gracias por registrarte en nuestra plataforma. Para activar tu cuenta, por favor sigue el enlace de verificación a continuación:
+
+{{ protocol }}://{{ domain }}{% url "account:email_change_confirm" uidb64=uid token=token email=email %}
+
+
+Si no puedes hacer clic en el enlace, cópialo y pégalo en la barra de direcciones de tu navegador.
+Este paso es necesario para garantizar la seguridad de tu cuenta. Una vez que hayas verificado tu dirección de correo electrónico, podrás acceder a todas las funcionalidades.
+
+{% endautoescape %}
